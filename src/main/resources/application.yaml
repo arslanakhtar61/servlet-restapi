@@ -30,6 +30,7 @@ springdoc:
     urls[0]:
       url: /@spring.application.name@/@api.version@/api-docs
       name: @spring.application.name@
+    disable-swagger-default-url: true
 
 
 server:

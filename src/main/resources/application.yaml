@@ -1,0 +1,38 @@
+camel:
+  springboot:
+    main-run-controller: true
+  servlet:
+    mapping:
+      context-path: /@spring.application.name@/@api.version@/*
+  rest:
+    component: servlet
+    binding-mode: auto
+    data-format-property:
+      prettyPrint: true
+    enable-cors: true
+    api-component: swagger #for 'openapi' use 'camel-openapi-java-starter', for 'swagger' use 'camel-swagger-java-starter'
+    api-context-path: /api-docs
+    api-context-route-id: swagger
+    api-property:
+      api:
+        title: Camel REST-DSL @spring.application.name@
+        version: "0.0.1"
+        path: /@spring.application.name@/@api.version@/api-docs
+      cors: "true"
+      base:
+        path: /@spring.application.name@/@api.version@/
+springdoc:
+  cache:
+    disabled: true
+  swagger-ui:
+    path: /swagger-ui.html
+    # This replaces the need to add resources/static/swagger-config.json file
+    urls[0]:
+      url: /@spring.application.name@/@api.version@/api-docs
+      name: @spring.application.name@
+
+
+server:
+  port: 8080
+#  servlet:
+#    context-path: /@spring.application.name@/@api.version@ # https://stackoverflow.com/a/72319076/6434650

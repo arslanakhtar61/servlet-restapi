@@ -5,7 +5,7 @@ camel:
     mapping:
       context-path: /@spring.application.name@/@api.version@/*
   rest:
-    component: servlet
+    component: servlet #use camel-http-starter for http producer client otherwise use netty-http to support both producer/consumer
     binding-mode: auto
     data-format-property:
       prettyPrint: true
